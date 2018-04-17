@@ -1,1 +1,3 @@
 # BehaviorTree
+BehaviorTree勉強用
+もしかしたらその他の勉強とかにも使うかも
