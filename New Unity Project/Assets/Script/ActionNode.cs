@@ -15,6 +15,7 @@ namespace BehaviorTree
 
         public ActionNode(Func<NodeInstanse, Result> func)
         {
+            Init();
             this.func = func;
         }
 
@@ -25,10 +26,24 @@ namespace BehaviorTree
         /// <returns></returns>
         public override Result Excute(NodeInstanse instanse)
         {
+            Debug.Log(1);
             instanse.nodeStateDic[Key] = NodeState.Ready;
+            Debug.Log(2);
             var result = func(instanse);
-            if (result.result) instanse.nodeStateDic[Key] = NodeState.Success;
-            else instanse.nodeStateDic[Key] = NodeState.Failed;
+            Debug.Log(3);
+            if (result.result)
+            {
+                Debug.Log(4);
+                instanse.nodeStateDic[Key] = NodeState.Success;
+                Debug.Log(5);
+            }
+            else
+            {
+                Debug.Log(6);
+                instanse.nodeStateDic[Key] = NodeState.Failed;
+                Debug.Log(7);
+            }
+            Debug.Log(8);
             return result;
 
         }
